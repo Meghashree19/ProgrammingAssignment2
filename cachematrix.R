@@ -9,7 +9,7 @@ makeCacheMatrix <- function(x = matrix()) {
     inverseMatrix <<- NULL
   }
   get <- function() x ## This function returns a matrix x stored in makeCacheMatrix
-  setinverse <- function() inverseMatrix <<- solve(x) ## This stores the value of the input in a variable inverseMatrix
+  setinverse <- function(inverse) inverseMatrix <<- inverse ## This stores the value of the input in a variable inverseMatrix
   getinverse <- function() inverseMatrix ## return the value of the variable inverseMatrix
   list(set = set, get = get, ## store the above 4 functions in the makeCacheMatrix
        setinverse = setinverse,
@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Function cacheSolve computes the inverse of the special "matrix"
+## Function cacheSolve computes the inverse of the special "matrix" if the cache is empty or it return the cahced data.
 
 cacheSolve <- function(x, ...) {
   ## Returns a matrix which is a inverse of 'x'
